@@ -1,6 +1,6 @@
 # TrustVerify 🔐
 
-TrustVerify is a Python-based Command Line Interface (CLI) tool designed to ensure file integrity and authenticity using SHA-256 hashing and RSA digital signatures.
+TrustVerify is a Python-based Command Line Interface (CLI) tool designed to ensure file integrity and authenticity using SHA-256 hashing and RSA digital signatures. The tool is operated via command-line arguments for functionalities such as manifest generation, integrity checking, signing, and verification.
 
 ---
 
@@ -38,6 +38,8 @@ TrustVerify/
 ├── main.py
 ├── test_files/
 │   └── example.txt
+├── docs/
+│   └── TrustVerify_Report.pdf
 ├── README.md
 ├── .gitignore
 ```
@@ -63,34 +65,43 @@ pip install cryptography
 
 ## 🧪 Usage
 
-Generate manifest:
+### Generate Manifest
 
 ```bash
 python main.py manifest test_files
 ```
 
-Check integrity:
+### Check Integrity
 
 ```bash
 python main.py check test_files
 ```
 
-Generate RSA keys:
+### Generate RSA Keys
 
 ```bash
 python main.py genkeys
 ```
 
-Sign manifest:
+### Sign Manifest
 
 ```bash
 python main.py sign metadata.json
 ```
 
-Verify signature:
+### Verify Signature
 
 ```bash
 python main.py verify metadata.json
+```
+
+---
+
+## 📊 Example Output
+
+```bash
+[OK] example.txt is intact.
+[MODIFIED] example.txt has been modified!
 ```
 
 ---
@@ -99,13 +110,21 @@ python main.py verify metadata.json
 
 * **Hashing (SHA-256)** ensures file integrity by detecting any changes in files
 * **Digital Signatures (RSA)** ensure authenticity by verifying the identity of the sender
-* Any modification in files or metadata results in verification failure
+* Any modification in files or metadata results in hash mismatch or signature verification failure
 
 ---
 
 ## 📌 Conclusion
 
 TrustVerify demonstrates how combining hashing and digital signatures provides a secure system for verifying both the integrity and origin of files.
+
+This project highlights the importance of combining integrity and authenticity mechanisms in secure systems.
+
+---
+
+## 📄 Report
+
+The full project report is available in the `docs/TrustVerify_Report.pdf` file.
 
 ---
 
